@@ -1,0 +1,6 @@
+@import "./normalize.scss";
+@import "./svg.scss";
+
+//主界面布局宽高
+$widths: var(--tWidth, 250px);
+$heights: 64px;
