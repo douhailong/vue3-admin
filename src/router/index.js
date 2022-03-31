@@ -4,7 +4,7 @@ const routes = [
   // 登录
   {
     path: "/",
-    name: "login",
+    name: "Login",
     meta: {
       hidden: true,
       title: "登录",
@@ -14,7 +14,7 @@ const routes = [
   // 注册
   {
     path: "/register",
-    name: "logregisterin",
+    name: "Register",
     meta: {
       hidden: true,
       title: "注册",
@@ -24,7 +24,7 @@ const routes = [
   // 忘记密码
   {
     path: "/forget",
-    name: "forget",
+    name: "Forget",
     meta: {
       hidden: true,
       title: "忘记密码",
@@ -34,55 +34,55 @@ const routes = [
   // 首页
   {
     path: "/index",
-    name: "index",
+    name: "Index",
     meta: {
       title: "首页",
       icon: "home",
     },
-    component: () => import("../views/layout/index.vue"),
+    component: () => import("../views/layout/Index.vue"),
     children: [{
         path: "/home",
-        name: "home",
+        name: "Home",
         meta: {
             title: '首页',
         },
         component: () =>
-            import ("../views/admin/index.vue")
+            import ("../views/home/Index.vue")
     }]
   },
   // 管理总台
   {
     path: "/adminIndex",
-    name: "adminIndex",
+    name: "AdminIndex",
     meta: {
       title: "管理总台",
       icon: "console",
     },
-    component: () => import("../views/layout/index.vue"),
+    component: () => import("../views/layout/Index.vue"),
     children: [
       {
         path: "/role",
-        name: "role",
+        name: "Role",
         meta: {
           title: "角色管理",
         },
-        component: () => import("../views/admin/role.vue"),
+        component: () => import("../views/admin/Role.vue"),
       },
       {
         path: "/user",
-        name: "user",
+        name: "User",
         meta: {
           title: "用户管理",
         },
-        component: () => import("../views/admin/user.vue"),
+        component: () => import("../views/admin/User.vue"),
       },
       {
         path: "/menu",
-        name: "menu",
+        name: "Menu",
         meta: {
           title: "菜单列表",
         },
-        component: () => import("../views/admin/menu.vue"),
+        component: () => import("../views/admin/Menu.vue"),
       },
     ],
   },
@@ -95,59 +95,7 @@ const routes = [
       icon: "info",
       // hidden: true,
     },
-    component: () => import("../views/layout/index.vue"),
-    children: [
-      {
-        path: "/role",
-        name: "role",
-        meta: {
-          title: "角色管理",
-        },
-        component: () => import("../views/admin/role.vue"),
-      },
-      {
-        path: "/user",
-        name: "user",
-        meta: {
-          title: "用户管理",
-        },
-        component: () => import("../views/admin/user.vue"),
-      },
-      {
-        path: "/menu",
-        name: "menu",
-        meta: {
-          title: "菜单列表",
-        },
-        component: () => import("../views/admin/menu.vue"),
-        children: [
-          {
-            path: "/role",
-            name: "role",
-            meta: {
-              title: "角色管理",
-            },
-            component: () => import("../views/admin/role.vue"),
-          },
-          {
-            path: "/user",
-            name: "user",
-            meta: {
-              title: "用户管理",
-            },
-            component: () => import("../views/admin/user.vue"),
-          },
-          {
-            path: "/menu",
-            name: "menu",
-            meta: {
-              title: "菜单列表",
-            },
-            component: () => import("../views/admin/menu.vue"),
-          },
-        ],
-      },
-    ],
+    component: () => import("../views/layout/Index.vue"),
   },
   // 会员管理
   {
@@ -157,7 +105,7 @@ const routes = [
       title: "会员管理",
       icon: "member",
     },
-    component: () => import("../views/layout/index.vue"),
+    component: () => import("../views/layout/Index.vue"),
     children: [],
   },
   // 产品管理
@@ -168,7 +116,7 @@ const routes = [
       title: "产品管理",
       icon: "product",
     },
-    component: () => import("../views/layout/index.vue"),
+    component: () => import("../views/layout/Index.vue"),
     children: [],
   },
 ];

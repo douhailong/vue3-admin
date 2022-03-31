@@ -16,10 +16,5 @@ export default {
       default: "aside-svg",
     }
   },
-  setup(props) {
-  }
-
 }
 </script>
-<style lang="scss" scoped>
-</style>

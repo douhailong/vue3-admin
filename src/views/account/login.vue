@@ -20,8 +20,10 @@
   </div>
 </template>
 <script>
-import { Login } from "@/api/user.js";
-import {useRouter} from "vue-router"
+import { setToken, setUsername } from "@/utils/cookies";
+import { Login } from "@/api/account.js"
+import { message } from "ant-design-vue";
+import { useRouter } from "vue-router"
 import { reactive, toRefs } from 'vue';
 export default {
   name: "Login",
@@ -30,7 +32,7 @@ export default {
     const {push,replace} = useRouter();
     const data = reactive({
       Form_data: {
-        username: "15052035223",
+        username: "17752648710",
         password: "123qwe"
       }
     })
@@ -41,17 +43,16 @@ export default {
       }
       //登录接口
       Login(requestData).then(res => {
-          console.log(res)
-        // const data = res.content
-        // setToken(data.token)
-        // setUsername(data.username)
+        const data = res.content
+        setToken(data.token)
+        setUsername(data.username)
         //进入后台
         push({
-          name: 'Index'
+          name: 'Home'
         })
 
       }).catch(err => {
-        console.log('cc')
+        message.error('data.message');
       })
     };
     return {

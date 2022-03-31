@@ -1,15 +1,9 @@
 <template>
   <div class="menu-logo">
     <svg-icon iconName="logo" className="logo-svg" />
-    <h1>Created By Dou</h1>
+    <h1>Dou Design Vue</h1>
   </div>
-  <a-menu
-    mode="inline"
-    theme="dark"
-    :inline-collapsed="!trigger"
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
-  >
+  <a-menu mode="inline" theme="dark" :inline-collapsed="!trigger">
     <template v-for="item in routers">
       <template v-if="!item.meta.hidden">
         <!-- 一层 -->
@@ -24,47 +18,30 @@
           </template>
         </a-menu-item>
         <!-- 多层 -->
-        <Menu v-else :menu="item" :key="item.path" />
+        <Nav v-else :menu="item" :key="item.path" />
       </template>
     </template>
   </a-menu>
 </template>
 
-<script>
+<script setup>
 import { useRouter } from "vue-router";
-import Menu from "./menu.vue"
-import { defineComponent, reactive, toRefs, watch } from 'vue';
-export default defineComponent({
-  name: "Sider",
-  props: {
-    trigger: {
-      type: Boolean,
-      default: true
-    }
-  },
-  setup(props, contex) {
-    const routers = useRouter().options.routes;
-    
-    let i = 0;
-    const hasOnlyChildren = (parame) => {
-      if (parame.children) {
-        const iS = parame.children.filter(item => item.meta.hidden ? false : true);
-        return (iS.length === 1) ? true : false;
-      }
-    };
+import Nav from "./Nav.vue";
 
-    return {
-      routers,
-      hasOnlyChildren
-    };
-  },
-  components: {
-    Menu
+const props = defineProps({
+  trigger: {
+    type: Boolean,
+    default: true
   }
 });
+const routers = useRouter().options.routes;
+const hasOnlyChildren = (parame) => {
+  if (parame.children) {
+    const iS = parame.children.filter(item => item.meta.hidden ? false : true);
+    return (iS.length === 1) ? true : false;
+  }
+};
 </script>
-
-
 
 <style lang="scss" scoped>
 .menu-logo {
@@ -76,16 +53,17 @@ export default defineComponent({
   transition: all 0.3s;
   line-height: $heights;
   svg {
+    margin-left: 3px;
     vertical-align: middle;
   }
   h1 {
     display: inline-block;
     color: #fff;
     font-size: 20px;
-    margin-left: 12px;
     font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
     font-weight: 600;
     vertical-align: middle;
+    margin-left: 12px;
   }
 }
 </style>

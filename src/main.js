@@ -6,8 +6,8 @@ import axios from "axios";
 // import VueI18n from 'vue-i18n'
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
-import componentPro from "@/GlobalComponent";
-
+import "./router/intercept"
+import componentPro from "@/globalComponent";
 const app = createApp(App);
 
 app.config.globalProperties.$axios = axios;

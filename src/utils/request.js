@@ -1,6 +1,6 @@
 import { message } from "ant-design-vue";
-import axios from "axios";
-// import { getToken,getUsername} from "./cookies"
+import axios from "axios"
+import { getToken,getUsername} from "./cookies"
 //创建axios实列
 const service = axios.create({
     baseURL: "",
@@ -11,12 +11,13 @@ const service = axios.create({
 // 添加请求拦截器
 service.interceptors.request.use(function(config) {
     // 发送请求之前
-    // config.headers["Authorization"] = getToken();  // 携带token
-    // config.headers["username"] = getUsername();  // 携带username
+    config.headers["Authorization"] = getToken();  // 携带token
+    config.headers["username"] = getUsername();  // 携带username
     return config;
 }, function(error) {
     // 请求错误
-    return Promise.reject(error);
+    console.log('ssss')
+    // return Promise.reject(error);
 });
 
 // 添加响应拦截器
@@ -32,7 +33,7 @@ service.interceptors.response.use(function(response) {
 }, function(error) {
     // 响应错误
     const data = JSON.parse(error.request.response)
-    message.error.apply(data.message);
+    message.error.apply(data.message)
     return Promise.reject(error);
 });
 export default service;

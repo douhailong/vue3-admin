@@ -19,7 +19,7 @@
             </router-link>
           </a-menu-item>
           <!-- 多层 -->
-          <Menu :menu="item" v-else :key="item.path" />
+          <Nav :menu="item" v-else :key="item.path" />
         </template>
       </template>
     </template>
@@ -27,7 +27,7 @@
 </template>
 <script>
 export default {
-  name: "Menu",
+  name: "Nav",
   props: {
     menu: {
       type: Object,

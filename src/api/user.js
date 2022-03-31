@@ -1,43 +1,58 @@
 import service from "@/utils/request.js";
 
-//验证手机号是否存在
-export function CheckName(data) {
+//新增用户
+export function UserCreate(data) {
     return service.request({
-        url: process.env.VUE_APP_APIURL + '/v1/account/check',
-        method: 'post',
-        data
-    })
-}
-//验证码获取
-export function Send(data) {
-    return service.request({
-        url: process.env.VUE_APP_APIURL + '/v1/send',
-        method: 'post',
-        data
-    })
-}
-//注册
-export function Registe(data) {
-    return service.request({
-        url: process.env.VUE_APP_APIURL + '/v1/account/register',
-        method: 'post',
-        data
-    })
-}
-//登录
-export function Login(data) {
-    return service.request({
-        url: process.env.VUE_APP_APIURL + '/v1/account/login',
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/create',
         method: 'post',
         data
     })
 }
 
-
-
-export function GetCode(data) {
+//用户列表
+export function UserList(data) {
     return service.request({
-        url: '/getcode/',
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/lists',
+        method: 'post',
+        data
+    })
+}
+//删除用户
+export function UserDelete(data) {
+    return service.request({
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/remove',
+        method: 'post',
+        data
+    })
+}
+//状态更新
+export function UserSwitch(data) {
+    return service.request({
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/status',
+        method: 'post',
+        data
+    })
+}
+//用户详情
+export function UserInfo(data) {
+    return service.request({
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/info',
+        method: 'post',
+        data
+    })
+}
+//编辑
+export function UserUpdate(data) {
+    return service.request({
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/update',
+        method: 'post',
+        data
+    })
+}
+//搜索
+export function UserSearch(data) {
+    return service.request({
+        url: process.env.VUE_APP_APIURL_USER + '/v1/user/update',
         method: 'post',
         data
     })

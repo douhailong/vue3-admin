@@ -1,8 +1,12 @@
 <template>
-  home
+    <Home @aa="aa" name="huang" />
 </template>
-<script>
-export default {}
+<script setup>
+import Home from "./home.vue"
+const aa = () => {
+    console.log('aaaaa')
+}
 </script>
 <style lang="scss" scoped>
+
 </style>

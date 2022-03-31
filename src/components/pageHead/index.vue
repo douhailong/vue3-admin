@@ -1,7 +1,7 @@
 <template>
   <a-page-header title="查询表格" :breadcrumb="{ routes }" />
 </template>
-<script>
+<script setup>
 const routes = [
   {
     path: 'index',
@@ -16,14 +16,6 @@ const routes = [
     breadcrumbName: '查询表格',
   },
 ];
-export default {
-  name: "PageHeader",
-  setup() {
-    return {
-      routes,
-    };
-  }
-}
 </script>
 <style lang="scss" scoped>
 .ant-page-header {
